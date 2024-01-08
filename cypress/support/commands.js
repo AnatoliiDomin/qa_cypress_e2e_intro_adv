@@ -27,3 +27,10 @@
 Cypress.Commands.add('findByPlaceholder', (placeholder) => {
   cy.get(`[placeholder="${placeholder}"]`);
 });
+
+Cypress.Commands.add('addNewUser', (user) => {
+  cy.get('#signin2').click();
+  cy.get('#sign-username').type(user.userName);
+  cy.get('#sign-password').type(user.password);
+  cy.contains('[class="btn btn-primary"]', 'Sign up').click();
+});
